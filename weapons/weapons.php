@@ -8,12 +8,12 @@
 </head>
 <body>
 
-<!-- Barra de menú -->
 <div class="navbar">
   <a href="../index.php" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
     <a href="weapons.php" class="navbar-link">Weapons</a>
+    <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
   </div>
 </div>
 <?php

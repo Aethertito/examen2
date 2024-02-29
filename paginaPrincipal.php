@@ -12,6 +12,7 @@
   <div class="navbar-links">
     <a href="paginaPrincipal.php" class="navbar-link">Agents</a>
     <a href="weapons/weapons.php" class="navbar-link">Weapons</a>
+    <a href="basics/menuBasics.php" class="navbar-link">Basics</a>
   </div>
 </div>
   <div id="agentes-lista">
