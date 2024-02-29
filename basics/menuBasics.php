@@ -18,6 +18,8 @@
 </div>
  <a href="gear.php" class="navbar-link">Gear</a>
  <a href="maps.php" class="navbar-link">Maps</a>
+ <a href="gameModes.php" class="navbar-link">Gamemodes</a>
+
 
 
   </div>
