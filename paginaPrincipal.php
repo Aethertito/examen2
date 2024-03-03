@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agentes de Valorant</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body{
+            font-family: Arial,helvetica,arial,sans-serif;
+            color: black;
+        }
+  </style>
 </head>
 <body>
 <div class="navbar">

@@ -1,0 +1,218 @@
+
+/* ================================= FUENTES ============================================ */
+@font-face {
+    font-family: 'Tungsten-Bold'; /* Puedes elegir el nombre que quieras */
+    src: url('fonts/tungsten-font/Tungsten-Bold.otf') format('truetype'); /* Asegúrate de ajustar la ruta y el formato según tu fuente */    
+}
+
+@font-face {
+    font-family: 'DinNext-Bold'; /* Puedes elegir el nombre que quieras */
+    src: url('fonts/DIN-Next-Font/DINNextW1G-Bold.otf') format('truetype'); /* Asegúrate de ajustar la ruta y el formato según tu fuente */    
+}
+
+@font-face {
+    font-family: 'DinNext-Light'; /* Puedes elegir el nombre que quieras */
+    src: url('fonts/DIN-Next-Font/DINNextW1G-Light.otf') format('truetype'); /* Asegúrate de ajustar la ruta y el formato según tu fuente */    
+}
+
+/* ================================= BODY ============================================ */
+
+body{
+    background-image: url(img/valoLobby2.jpg);
+}
+
+/* ================================= NAVBAR ============================================ */
+
+.navbar{
+    display:flex;
+    justify-content: space-between;    
+}
+
+.izquierdaNavbar{    
+    margin-left: 1rem;
+    display:flex;
+}
+
+.contenedorLogo{
+    width: 4rem;
+    margin-top: 0.9rem;
+}
+
+.logo{
+    width: 100%;
+}
+
+.contenedorTitulo{
+    margin-left: 1rem;
+    user-select: none;
+}
+
+.titulo{
+    font-family: 'Tungsten-Bold', sans-serif;    
+    font-weight: light;
+    letter-spacing: 3px;
+    font-size: 4rem;    
+    color:transparent;    
+    -webkit-text-stroke: 1px #fff;
+}
+
+.episodioActo{
+    font-family: 'DinNext-Bold', sans-serif;
+    color:white;            
+    transform: translateY(-0.5rem);
+}
+
+.derechaNavbar{
+    margin-top:2rem;
+    display:flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .derechaNavbar{
+       display:flex;
+       flex-direction: column;
+       justify-content: unset;
+       margin-top: 0.5rem;
+    }    
+}
+
+.contenedorMisiones{
+    display:flex;
+    user-select: none;
+}
+
+.contenedorPuntos{
+    margin-left: 10rem;
+}
+
+@media (max-width: 768px) {
+    .contenedorPuntos{        
+        margin-left:0rem;
+        flex-direction: column;
+     }    
+}
+
+.iconoMisiones{
+    width: 1.2rem;
+    transform: translateY(1px);
+}
+.iconoMision{
+    width: 100%;    
+}
+
+.misiones{
+    font-family: 'DinNext-Light', sans-serif;
+    color:white;  
+    font-size: 1.3rem;    
+    margin-left: 0.5rem;  
+}
+
+.contenedorPuntos{
+    display:flex;
+    user-select: none;
+}
+.contenedorValorantPoints{
+    display:flex;
+}
+.contenedorIconoValorantPoints{
+    width: 1.2rem;
+}
+.iconoValorantPoints{
+    width: 100%;
+}
+
+.valorantPoints{
+    font-family: 'DinNext-Light', sans-serif;
+    color:white;  
+    font-size: 1.2rem;    
+    margin-left: 0.3rem;      
+}
+
+.contenedorRiotPoints{
+    margin-left:1rem;
+    margin-right:2rem;
+    display:flex;
+}
+
+@media (max-width: 768px) {
+    .contenedorRiotPoints{        
+        margin-left:0rem;        
+     }    
+}
+
+
+.contenedorIconoRiotPoints{
+    width: 1.2rem;
+}
+.iconoRiotPoints{
+    width: 100%;
+}
+.riotPoints{
+    font-family: 'DinNext-Light', sans-serif;
+    color:white;  
+    font-size: 1.2rem;    
+    margin-left: 0.5rem;  
+}
+
+
+/* ================================= MENU DE OPCIONES ============================================ */
+
+.contenido{
+
+}
+.contenedorMenu{
+    margin-top:10rem;
+    margin-left:3rem;
+}
+ul,li{   
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.itemMenu{
+    display: flex;    
+      
+}
+.contenedorIconoOpcion{
+    width: 0.7rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.iconoRombo{
+    width: 100%;    
+}
+
+.textoOpcion{
+    font-family: 'Tungsten-Bold', sans-serif;
+    color:white;   
+    text-decoration: none;
+    transition: 0.2s ease;
+    margin-left: 1.5rem;
+    font-size: 3.6rem;  
+    margin-top: 0.5rem;  
+}
+
+.textoOpcion:hover{
+    color: #FF4454;
+    cursor: pointer;       
+}
+
+
+.textoOpcionPlay{
+    font-family: 'Tungsten-Bold', sans-serif;
+    color:white;   
+    text-decoration: none;
+    transition: 0.2s ease;
+    margin-left: 1.5rem;
+    font-size: 7rem;        
+}
+
+.textoOpcionPlay:hover{
+    color: #FF4454;
+    cursor: pointer;       
+}

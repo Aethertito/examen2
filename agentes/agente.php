@@ -6,6 +6,10 @@
   <title>Información del Agente</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
+    body{
+            font-family: Arial,helvetica,arial,sans-serif;
+            color: black;
+        }
     /* Estilo para la tabla */
     table {
       width: 100%;
