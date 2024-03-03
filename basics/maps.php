@@ -6,6 +6,10 @@
   <title>Información de Mapas</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
+    body{
+            font-family: Arial,helvetica,arial,sans-serif;
+            color: black;
+        }
     .container {
       text-align: center;
     }

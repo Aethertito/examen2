@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../styles.css">
 
     <style>
+        body{
+            font-family: Arial,helvetica,arial,sans-serif;
+            color: black;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
