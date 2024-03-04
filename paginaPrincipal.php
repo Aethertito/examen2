@@ -117,7 +117,6 @@
                 usort($agentes, 'ordenarAgentesZA');
                 break;
             default:
-                // No se aplica ningún ordenamiento
                 break;
         }
     }
