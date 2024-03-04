@@ -1,0 +1,101 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #dc3d4b; /* Color rojo para la barra de navegación */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .navbar-brand,
+  .navbar-link {
+    color: #fff; /* Texto blanco para contrastar con la barra roja */
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .navbar-brand:hover,
+  .navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .navbar-links {
+    display: flex;
+  }
+  
+  /* Estilos para el contenedor principal */
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f4f4f4; /* Fondo claro para el contenido */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Estilos Generales */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Estilos para las filas de episodios y actos */
+  tr.episode-row td {
+    background-color: #ffe4e1;
+    font-weight: bold;
+  }
+  
+  tr.act-row td {
+    background-color: #ffffff;
+  }
+  
+  /* Hover effect para las filas */
+  tr:not(.episode-row):hover {
+    background-color: #ffefd5;
+  }
+  
+  /* Estilos adicionales que ya tenías */
+  .agent-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  #agentes-lista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  

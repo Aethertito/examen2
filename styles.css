@@ -1,61 +1,80 @@
 /* Estilos para la barra de navegación */
 .navbar {
-    background-color: #dc3d4b;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  body {
-    background-color: #ffffff;
-  }
-  
-  .navbar-brand,
-  .navbar-link {
-    color: #000000;
-    text-decoration: none;
-    padding: 5px 10px;
-  }
-  
-  .navbar-brand:hover,
-  .navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-  }
-  
-  .navbar-links {
-    display: flex;
-  }
-  
-  /* Estilos para el contenedor principal */
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #dc3d4b;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Alineación del texto al centro */
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  /* Estilos para las imágenes */
-  .agent-img {
-    max-width: 300px;
-  }
+  background-color: #dc3d4b;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Asegura que los elementos de la barra estén verticalmente alineados */
+  flex-wrap: wrap; /* Permite la envoltura de elementos en pantallas pequeñas */
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.navbar-brand,
+.navbar-link {
+  color: #000000;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.navbar-brand:hover,
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px; /* Espacio entre los enlaces */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #dc3d4b;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Alineación del texto al centro */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Estilos para las imágenes */
+.agent-img {
+  max-width: 300px;
+}
+
 #agentes-lista {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+}
+
+.agent-img {
+  display: block;
+  margin: 0 auto; 
+  max-width: 100%; 
+}
+
+/* Añadidos estilos para mejorar la navegación en dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar-links {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
   }
-  
-  .agent-img {
-    display: block;
-    margin: 0 auto; 
-    max-width: 100%; 
+
+  .navbar-link {
+      margin-bottom: 5px;
   }
+}
