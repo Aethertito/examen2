@@ -30,10 +30,11 @@
 
 <!-- Barra de menú -->
 <div class="navbar">
-  <a href="#" class="navbar-brand">Valorant Wiki</a>
+<a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
-    <a href="#" class="navbar-link">Weapons</a>
+    <a href="../weapons/weapons.php" class="navbar-link">Weapons</a>
+    <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
   </div>
 </div>
 
