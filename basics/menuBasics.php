@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="navbar">
-  <a href="../index.php" class="navbar-brand">Valorant Wiki</a>
+  <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
     <a href="../weapons/weapons.php" class="navbar-link">Weapons</a>
