@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -38,6 +38,7 @@
 <div id="agentes-lista">
   <?php 
     // Datos de los agentes (simulación)
+    
     $agentes = [
       ["nombre" => "Gekko", "uuid" => "e370fa57-4757-3604-3648-499e1f642d3f", "rol" => "Initiator"],
       ["nombre" => "Fade", "uuid" => "dade69b4-4f5a-8528-247b-219e5a1facd6", "rol" => "Initiator"],
@@ -62,28 +63,18 @@
       ["nombre" => "Breach", "uuid" => "5f8d3a7f-467b-97f3-062c-13acf203c006", "rol" => "Initiator"],
       ["nombre" => "Chamber", "uuid" => "22697a3d-45bf-8dd7-4fec-84a9e28c69d7", "rol" => "Sentinel"],
       ["nombre" => "Harbor", "uuid" => "95b78ed7-4637-86d9-7e41-71ba8c293152", "rol" => "Controller"]
-    ];
+  ];
 
-      // Función para filtrar agentes por nombre
-      function filtrarAgentesPorNombre($agentes, $nombre) {
-        $resultados = [];
-        foreach ($agentes as $agente) {
-            if (strpos(strtolower($agente['nombre']), strtolower($nombre)) !== false) {
-                $resultados[] = $agente;
-            }
-        }
-        return $resultados;
+    // Función para filtrar agentes por nombre
+    function filtrarAgentesPorNombre($agentes, $nombre) {
+        // Código para filtrar agentes por nombre aquí
     }
- // Función para filtrar agentes por rol
- function filtrarAgentesPorRol($agentes, $rol) {
-  $resultados = [];
-  foreach ($agentes as $agente) {
-      if ($agente['rol'] === $rol) {
-          $resultados[] = $agente;
-      }
-  }
-  return $resultados;
-}
+
+    // Función para filtrar agentes por rol
+    function filtrarAgentesPorRol($agentes, $rol) {
+        // Código para filtrar agentes por rol aquí
+    }
+
     // Función para ordenar agentes de A a Z
     function ordenarAgentesAZ($a, $b) {
         return strcmp($a["nombre"], $b["nombre"]);
@@ -94,18 +85,14 @@
         return strcmp($b["nombre"], $a["nombre"]);
     }
 
-   // Aplicar filtros si se han enviado datos desde el formulario
-   if (isset($_GET['search'])) {
-    $nombreBuscado = $_GET['search'];
-    $agentes = filtrarAgentesPorNombre($agentes, $nombreBuscado);
-}
+    // Aplicar filtros y ordenamiento si se han enviado datos desde el formulario
+    if (isset($_GET['search'])) {
+        // Código para aplicar filtro por nombre aquí
+    }
 
     if (isset($_GET['role'])) {
-      $rolFiltrado = $_GET['role'];
-      if ($rolFiltrado !== "") {
-          $agentes = filtrarAgentesPorRol($agentes, $rolFiltrado);
-      }
-  }
+        // Código para aplicar filtro por rol aquí
+    }
 
     if (isset($_GET['sort'])) {
         $sortType = $_GET['sort'];
@@ -117,6 +104,7 @@
                 usort($agentes, 'ordenarAgentesZA');
                 break;
             default:
+                // No se aplica ningún ordenamiento
                 break;
         }
     }
