@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Búsqueda de Habilidades de Agentes en Valorant</title>
+  <title>Abilities</title>
   <link rel="stylesheet" href="../styles.css">
-  <!-- Incluye aquí tus estilos adicionales -->
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .search-form {
+      margin-bottom: 20px;
+    }
+    .ability-info, .agent-info {
+      text-align: left;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: gray;
+    }
+    .ability-info img, .agent-info img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .not-found {
+      color: #ff0000;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,54 +47,58 @@
     <a href="basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
-
+<hr>
 <div class="container">
-  <h1>Búsqueda de Habilidades de Agentes</h1>
-  <form action="" method="get">
-    <input type="text" name="ability" placeholder="Introduce el nombre de la habilidad" required>
+  <h1>Search Abilities or Agents</h1>
+  <form action="" method="get" class="search-form">
+    <input type="text" name="search" placeholder="Agent or abilitie name" required>
     <button type="submit">Buscar</button>
   </form>
 
   <?php
-  if (isset($_GET['ability']) && $_GET['ability'] != '') {
-    $abilityToSearch = strtolower(trim($_GET['ability']));
+  if (isset($_GET['search']) && $_GET['search'] != '') {
+    $searchTerm = strtolower(trim($_GET['search']));
     $url = "https://valorant-api.com/v1/agents";
-    
+
     $response = file_get_contents($url);
     $agents = json_decode($response, true);
 
     if ($agents['status'] == 200) {
-      $abilitiesFound = [];
+      $resultsFound = false;
+
       foreach ($agents['data'] as $agent) {
-        if (isset($agent['abilities'])) {
+        // Búsqueda por nombre de agente
+        if (stripos(strtolower($agent['displayName']), $searchTerm) !== false) {
+          echo "<h2>Agente: " . htmlspecialchars($agent['displayName']) . "</h2>";
           foreach ($agent['abilities'] as $ability) {
-            if (stripos(strtolower($ability['displayName']), $abilityToSearch) !== false) {
-              $abilitiesFound[] = [
-                'agentName' => $agent['displayName'],
-                'abilityName' => $ability['displayName'],
-                'abilityDescription' => $ability['description'],
-                'abilityIcon' => $ability['displayIcon']
-              ];
-            }
+            echo "<div class='ability-info'>";
+            echo "<img src='" . htmlspecialchars($ability['displayIcon']) . "' alt='" . htmlspecialchars($ability['displayName']) . "' style='width: 50px; vertical-align: middle;'>";
+            echo "<strong>" . htmlspecialchars($ability['displayName']) . ":</strong> ";
+            echo htmlspecialchars($ability['description']);
+            echo "</div><br>";
+          }
+          $resultsFound = true;
+        }
+
+        // Búsqueda por nombre de habilidad
+        foreach ($agent['abilities'] as $ability) {
+          if (!$resultsFound && stripos(strtolower($ability['displayName']), $searchTerm) !== false) {
+            echo "<div class='ability-info'>";
+            echo "<img src='" . htmlspecialchars($ability['displayIcon']) . "' alt='" . htmlspecialchars($ability['displayName']) . "' style='width: 50px; vertical-align: middle;'>";
+            echo "<strong>Abilitie:</strong> " . htmlspecialchars($ability['displayName']) . "<br>";
+            echo "<strong>Agent:</strong> " . htmlspecialchars($agent['displayName']) . "<br>";
+            echo "<strong>Description:</strong> " . htmlspecialchars($ability['description']);
+            echo "</div><hr>";
+            $resultsFound = true;
           }
         }
       }
 
-      if (count($abilitiesFound) > 0) {
-        echo "<h2>Resultados encontrados:</h2>";
-        foreach ($abilitiesFound as $found) {
-          echo "<div class='ability-info'>";
-          echo "<img src='" . htmlspecialchars($found['abilityIcon']) . "' alt='" . htmlspecialchars($found['abilityName']) . "' style='max-width: 100px;'><br>";
-          echo "<strong>Agente:</strong> " . htmlspecialchars($found['agentName']) . "<br>";
-          echo "<strong>Habilidad:</strong> " . htmlspecialchars($found['abilityName']) . "<br>";
-          echo "<strong>Descripción:</strong> " . htmlspecialchars($found['abilityDescription']);
-          echo "</div><hr>";
-        }
-      } else {
-        echo "<p>No se encontraron habilidades que coincidan con tu búsqueda.</p>";
+      if (!$resultsFound) {
+        echo "<p>No skills or agents found that match your search.</p>";
       }
     } else {
-      echo "<p>Hubo un problema al obtener los datos de los agentes.</p>";
+      echo "<p>Error.</p>";
     }
   }
   ?>
