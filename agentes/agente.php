@@ -10,7 +10,6 @@
             font-family: Arial,helvetica,arial,sans-serif;
             color: black;
         }
-    /* Estilo para la tabla */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -27,14 +26,15 @@
   </style>
 </head>
 <body>
-
-<!-- Barra de menú -->
 <div class="navbar">
-<a href="../index.html" class="navbar-brand">Valorant Wiki</a>
+  <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
     <a href="../weapons/weapons.php" class="navbar-link">Weapons</a>
-    <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
+    <a href="../basics/maps.php" class="navbar-link">Maps</a>
+    <a href="../seasons/season.php" class="navbar-link">Seasons</a>
+    <a href="../weapons/skins.php" class="navbar-link">Skins</a>
+    <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
 
