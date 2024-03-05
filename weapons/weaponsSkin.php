@@ -73,32 +73,10 @@
   </div>
 </div>
 
-<div class="search-filter-container">
-  <form method="get">
-    <input type="text" name="search" placeholder="Search a weapon...">
-    <select name="category">
-      <option value="">Filter by category</option>
-      <option value="Heavy">Heavy</option>
-      <option value="Rifle">Rifle</option>
-      <option value="Sidearm">Sidearm</option>
-      <option value="Shotgun">Shotgun</option>
-      <option value="Sniper">Sniper</option>
-      <option value="SMG">SMG</option>
-      <option value="Melee">Melee</option>
-    </select>
-    <select name="sort">
-      <option value="">Order by</option>
-      <option value="az">A-Z</option>
-      <option value="za">Z-A</option>
-    </select>
-    <button type="submit">Search</button>
-  </form>
-</div>
-
-
 <div class="menu-container">
   <div class="weapon-category">
   <?php 
+    // Datos de los agentes (simulación)
     $weapons = [
       ["nombre" => "Odin", "uuid" => "63e6c2b6-4a8e-869c-3d4c-e38355226584", "category" => "Heavy", "newImage" => "https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/shop/newimage.png"],
       ["nombre" => "Ares", "uuid" => "55d8a0f4-4274-ca67-fe2c-06ab45efdf58", "category" => "Heavy", "newImage" => "https://media.valorant-api.com/weapons/55d8a0f4-4274-ca67-fe2c-06ab45efdf58/shop/newimage.png"],
@@ -120,58 +98,7 @@
       ["nombre" => "Stinger", "uuid" => "f7e1b454-4ad4-1063-ec0a-159e56b58941", "category" => "SMG", "newImage" => "https://media.valorant-api.com/weapons/f7e1b454-4ad4-1063-ec0a-159e56b58941/shop/newimage.png"],
       ["nombre" => "Melee", "uuid" => "2f59173c-4bed-b6c3-2191-dea9b58be9c7", "category" => "Melee", "newImage" => "https://media.valorant-api.com/weapons/2f59173c-4bed-b6c3-2191-dea9b58be9c7/displayicon.png"],
     ];
-      function filtrarArmasPorNombre($weapons, $nombre) {
-        $resultados = [];
-        foreach ($weapons as $weapons) {
-            if (strpos(strtolower($weapons['nombre']), strtolower($nombre)) !== false) {
-                $resultados[] = $weapons;
-            }
-        }
-        return $resultados;
-    }
- function filtrarArmasPorCategoria($weapons, $category) {
-  $resultados = [];
-  foreach ($weapons as $weapon) {
-      if ($weapon['category'] === $category) {
-          $resultados[] = $weapon;
-      }
-  }
-  return $resultados;
-}
-    function ordenarArmasAZ($a, $b) {
-        return strcmp($a["nombre"], $b["nombre"]);
-    }
-
-    function ordenarArmasZA($a, $b) {
-        return strcmp($b["nombre"], $a["nombre"]);
-    }
-
-   if (isset($_GET['search'])) {
-    $nombreBuscado = $_GET['search'];
-    $weapons = filtrarArmasPorNombre($weapons, $nombreBuscado);
-}
-
-    if (isset($_GET['category'])) {
-      $rolFiltrado = $_GET['category'];
-      if ($rolFiltrado !== "") {
-          $weapons = filtrarArmasPorCategoria($weapons, $rolFiltrado);
-      }
-  }
-
-    if (isset($_GET['sort'])) {
-        $sortType = $_GET['sort'];
-        switch ($sortType) {
-            case 'az':
-                usort($weapons, 'ordenarArmasAZ');
-                break;
-            case 'za':
-                usort($weapons, 'ordenarArmasZA');
-                break;
-            default:
-                break;
-        }
-    }
-
+    
     $categories = [];
     foreach ($weapons as $weapon) {
         $categories[$weapon['category']][] = $weapon;
@@ -181,7 +108,7 @@
       echo "<div class='weapon-category'>";
       foreach ($weapons as $weapon) {
         
-          echo "<div class='weapon-card' onclick=\"window.location='weapons.php?uuid={$weapon['uuid']}'\">";
+          echo "<div class='weapon-card' onclick=\"window.location='skins.php?uuid={$weapon['uuid']}'\">";
           echo "<img src='{$weapon['newImage']}' class='weapon-image' alt='{$weapon['nombre']}'>";
           echo "<div class='weapon-name'>{$weapon['nombre']}</div>";
           echo "</div>";

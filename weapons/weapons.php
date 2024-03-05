@@ -38,7 +38,7 @@ if(isset($data['data']) && !empty($data['data'])){
 if ($data['data']['weaponStats'] == null) {
   echo "<h1>$name</h1>";
   echo "<img src = $icon alt=#>";
-  echo "<h1>Esta arma no cuenta con estadisticas</h1>";
+  echo "<h1>This weapon doesnt have stats available</h1>";
 }else{
   $fr = $data['data']['weaponStats']['fireRate'];
   $ms = $data['data']['weaponStats']['magazineSize'];
