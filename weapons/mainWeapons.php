@@ -21,9 +21,9 @@
 
 <div class="search-filter-container">
   <form method="get">
-    <input type="text" name="search" placeholder="Buscar arma por nombre">
+    <input type="text" name="search" placeholder="Search a weapon...">
     <select name="category">
-      <option value="">Filtrar por categoria</option>
+      <option value="">Filter by category</option>
       <option value="Heavy">Heavy</option>
       <option value="Rifle">Rifle</option>
       <option value="Sidearm">Sidearm</option>
@@ -33,11 +33,11 @@
       <option value="Melee">Melee</option>
     </select>
     <select name="sort">
-      <option value="">Ordenar por</option>
+      <option value="">Order by</option>
       <option value="az">A-Z</option>
       <option value="za">Z-A</option>
     </select>
-    <button type="submit">Buscar</button>
+    <button type="submit">Search</button>
   </form>
 </div>
 

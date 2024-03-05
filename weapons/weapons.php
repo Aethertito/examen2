@@ -23,37 +23,29 @@
   </div>
 </div>
 <div class="container">
-  <h1>Weapons</h1>
   <?php
-//$uuid = $_GET['data']['uuid'];
-$url = "https://valorant-api.com/v1/weapons";
-$response = file_get_contents($url);
-$data = json_decode($response, true);
-if (isset($data['data']) && is_array($data['data']) && !empty($data['data'])) {
-    foreach ($data['data'] as $weapon) {
-        if (isset($weapon['displayName'], $weapon['displayIcon'], $weapon['weaponStats']['fireRate'], $weapon['weaponStats']['magazineSize'], $weapon['weaponStats']['reloadTimeSeconds'], $weapon['weaponStats']['firstBulletAccuracy'], $weapon['weaponStats']['wallPenetration'])) {
-            $weaponName = $weapon['displayName'];
-            $weaponImg = $weapon['displayIcon'];
-            $statsFr = $weapon['weaponStats']['fireRate'];
-            $statsMs = $weapon['weaponStats']['magazineSize'];
-            $statsRt = $weapon['weaponStats']['reloadTimeSeconds'];
-            $statsFba = $weapon['weaponStats']['firstBulletAccuracy'];
-            $statsWp = $weapon['weaponStats']['wallPenetration'];
-
-            echo "<h1>$weaponName</h1>";
-            echo "<img src=$weaponImg>";
-            //echo "<h3>$statsFr</h3>";
-            // Puedes usar $statsFr, $statsMs, $statsRt, $statsFba, $statsWp aquí
-        } else {
-            echo "<br>Datos incompletos para el arma.";
-        }
-    }
-} else {
-    echo "No se encontraron datos de armas.";
+if (isset($_GET['uuid']) && !empty($_GET['uuid'])) {
+  $uuid = $_GET['uuid'];
+  $url = "https://valorant-api.com/v1/weapons/$uuid";
+  $response = file_get_contents($url);
+  $data = json_decode($response, true);
+  if(isset($data['data']) && !empty($data['data'])){
+    $name = $data['data']['displayName'];
+    $icon = $data['data']['displayIcon'];
+    $fr = $data['data']['weaponStats']['fireRate'];
+    $ms = $data['data']['weaponStats']['magazineSize'];
+    $rt = $data['data']['weaponStats']['reloadTimeSeconds'];
+    $wp = $data['data']['weaponStats']['wallPenetration'];
+    echo "<h1>$name</h1>";
+    echo "<img src = $icon alt=#>";
+    echo "<h1>Weapon Stats</h1>";
+    echo "<h3>Fire rate: $fr</h3>";
+    echo "<h3>Magazine Size: $ms</h3>";
+    echo "<h3>Reload Time: $rt</h3>";
+    echo "<h3>Wall penetration: $wp</h3>";
+  }
 }
 ?>
-
-</div>
-</div>
+  </div>
 </body>
 </html>
