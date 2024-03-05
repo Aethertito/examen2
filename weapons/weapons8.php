@@ -68,14 +68,14 @@
     <?php
 
 $weapons = [
-    ["nombre" => "Odin", "uuid" => "63e6c2b6-4a8e-869c-3d4c-e38355226584", "category" => "Heavy"],
+    ["nombre" => "Odin", "uuid" => "63e6c2b6-4a8e-869c-3d4c-e38355226584", "category" => "Heavy","newImage" => "url_a_imagen_de_Odin"],
     ["nombre" => "Ares", "uuid" => "55d8a0f4-4274-ca67-fe2c-06ab45efdf58", "category" => "Heavy"],
     ["nombre" => "Vandal", "uuid" => "9c82e19d-4575-0200-1a81-3eacf00cf872", "category" => "Rifle"],
     ["nombre" => "Bulldog", "uuid" => "ae3de142-4d85-2547-dd26-4e90bed35cf7", "category" => "Rifle"],
     ["nombre" => "Phantom", "uuid" => "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a", "category" => "Rifle"],
     ["nombre" => "Judge", "uuid" => "ec845bf4-4f79-ddda-a3da-0db3774b2794", "category" => "Shotgun"],
     ["nombre" => "Bucky", "uuid" => "910be174-449b-c412-ab22-d0873436b21b", "category" => "Shotgun"],
-    ["nombre" => "Frenzy", "uuid" => "44d4e95c-4157-0037-81b2-17841bf2e8e3", "category" => "Sidearm"],
+    ["nombre" => "Frenzy", "uuid" => "44d4e95c-4157-0037-81b2-17841bf2e8e3", "category" => "Sidearm",],
     ["nombre" => "Classic", "uuid" => "29a0cfab-485b-f5d5-779a-b59f85e204a8", "category" => "Sidearm"],
     ["nombre" => "Ghost", "uuid" => "1baa85b4-4c70-1284-64bb-6481dfc3bb4e", "category" => "Sidearm"],
     ["nombre" => "Sheriff", "uuid" => "e336c6b8-418d-9340-d77f-7a9e4cfe0702", "category" => "Sidearm"],
@@ -90,21 +90,21 @@ $weapons = [
   ];
 
 $categories = [];
-foreach ($weapons as $weapon) {
-    $categories[$weapon['category']][] = $weapon;
-}
-
-foreach ($categories as $category => $weapons) {
-    echo "<div class='category-title'><span>" . strtoupper($category) . "</span></div>";
-    echo "<div class='weapon-category'>";
-    foreach ($weapons as $weapon) {
-        echo "<div class='weapon-card' onclick=\"window.location='weapon_info.php?uuid={$weapon['uuid']}'\">";
-        echo "<img src='{$weapon['newImage']}' class='weapon-image' alt='{$weapon['nombre']}'>";
-        echo "<div class='weapon-name'>{$weapon['nombre']}</div>";
-        echo "</div>";
+      foreach ($weapons as $weapon) {
+          $categories[$weapon['category']][] = $weapon;
+      }
+      foreach ($categories as $category => $weapons) {
+        echo "<div class='category-title'><span>" . strtoupper($category) . "</span></div>";
+        echo "<div class='weapon-category'>";
+        foreach ($weapons as $weapon) {
+            echo "<div class='weapon-card' onclick=\"window.location='weapon_info.php?uuid={$weapon['uuid']}'\">";
+            echo "<img src='{$weapon['newImage']}' class='weapon-image' alt='{$weapon['nombre']}'>";
+            echo "<div class='weapon-name'>{$weapon['nombre']}</div>";
+            echo "</div>";
+        }
+      echo "</div>";
     }
-    echo "</div>";
-}
+
 ?>
 
   </div>

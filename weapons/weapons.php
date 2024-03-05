@@ -69,7 +69,6 @@ if ($data['data']['weaponStats']['adsStats'] == null) {
     echo "<h3>Zoom multiplier: $zm</h3>";
     echo "<h3>Fire rate: $frAds</h3>";
     echo "<h3>Run Speed Multiplier: $rsm</h3>";
-    echo "";
       }
     }
   }
