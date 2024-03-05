@@ -1,6 +1,7 @@
 /* Estilos para la barra de navegación */
 .navbar {
     background-color: #dc3d4b; /* Color rojo para la barra de navegación */
+    font-family: Arial,helvetica,arial,sans-serif;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -37,7 +38,7 @@
   
   /* Estilos Generales */
   body {
-    font-family: Arial,helvetica,arial,sans-serif;
+      font-family: Arial,helvetica,arial,sans-serif;
     background-color: #ffffff;
     color: #333;
   }

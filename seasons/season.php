@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temporadas de Valorant</title>
+  <title>Seasons</title>
   <link rel="stylesheet" href="../styles2.css">
 </head>
 <body>
@@ -12,9 +12,11 @@
   <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
-    <a href="../weapons/weapons.php" class="navbar-link">Weapons</a>
-    <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
-    <a href="#" class="navbar-link">Seasons</a>
+    <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
+    <a href="../basics/maps.php" class="navbar-link">Maps</a>
+    <a href="season.php" class="navbar-link">Seasons</a>
+    <a href="../weapons/skins.php" class="navbar-link">Skins</a>
+    <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
 

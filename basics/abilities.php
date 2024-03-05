@@ -44,7 +44,7 @@
     <a href="maps.php" class="navbar-link">Maps</a>
     <a href="../seasons/season.php" class="navbar-link">Seasons</a>
     <a href="../weapons/skins.php" class="navbar-link">Skins</a>
-    <a href="basics/abilities.php" class="navbar-link">Abilities</a>
+    <a href="abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
 <hr>
