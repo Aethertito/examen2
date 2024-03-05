@@ -38,7 +38,6 @@
   </div>
 </div>
 
-<!-- Contenedor principal -->
 <div class="container">
 <?php
 if(isset($_GET['uuid']) && !empty($_GET['uuid'])) {

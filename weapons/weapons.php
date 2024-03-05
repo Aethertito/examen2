@@ -18,7 +18,7 @@
   <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
-    <a href="weapons.php" class="navbar-link">Weapons</a>
+    <a href="mainWeapons.php" class="navbar-link">Weapons</a>
     <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
   </div>
 </div>
@@ -29,13 +29,34 @@ if (isset($_GET['uuid']) && !empty($_GET['uuid'])) {
   $url = "https://valorant-api.com/v1/weapons/$uuid";
   $response = file_get_contents($url);
   $data = json_decode($response, true);
-  if(isset($data['data']) && !empty($data['data'])){
+if(isset($data['data']) && !empty($data['data'])){
     $name = $data['data']['displayName'];
     $icon = $data['data']['displayIcon'];
-    $fr = $data['data']['weaponStats']['fireRate'];
-    $ms = $data['data']['weaponStats']['magazineSize'];
-    $rt = $data['data']['weaponStats']['reloadTimeSeconds'];
-    $wp = $data['data']['weaponStats']['wallPenetration'];
+if ($data['data']['weaponStats'] == null) {
+  echo "<h1>$name</h1>";
+  echo "<img src = $icon alt=#>";
+  echo "<h1>Esta arma no cuenta con estadisticas</h1>";
+}else{
+  $fr = $data['data']['weaponStats']['fireRate'];
+  $ms = $data['data']['weaponStats']['magazineSize'];
+  $rt = $data['data']['weaponStats']['reloadTimeSeconds'];
+  $wp = $data['data']['weaponStats']['wallPenetration'];
+
+  $wp_full = $data['data']['weaponStats']['wallPenetration'];
+  $wp_parts = explode('::', $wp_full);
+  $wp = end($wp_parts);
+if ($data['data']['weaponStats']['adsStats'] == null) {
+  echo "<h1>$name</h1>";
+  echo "<img src = $icon alt=#>";
+  echo "<h1>Weapon Stats</h1>";
+  echo "<h3>Fire rate: $fr</h3>";
+  echo "<h3>Magazine Size: $ms</h3>";
+  echo "<h3>Reload Time: $rt</h3>";
+  echo "<h3>Wall penetration: $wp</h3>";
+} else {
+  $zm = $data['data']['weaponStats']['adsStats']['zoomMultiplier'];
+  $frAds = $data['data']['weaponStats']['adsStats']['fireRate'];
+  $rsm = $data['data']['weaponStats']['adsStats']['runSpeedMultiplier'];
     echo "<h1>$name</h1>";
     echo "<img src = $icon alt=#>";
     echo "<h1>Weapon Stats</h1>";
@@ -43,6 +64,14 @@ if (isset($_GET['uuid']) && !empty($_GET['uuid'])) {
     echo "<h3>Magazine Size: $ms</h3>";
     echo "<h3>Reload Time: $rt</h3>";
     echo "<h3>Wall penetration: $wp</h3>";
+  
+    echo "<h1>Ads Stats</h1>";
+    echo "<h3>Zoom multiplier: $zm</h3>";
+    echo "<h3>Fire rate: $frAds</h3>";
+    echo "<h3>Run Speed Multiplier: $rsm</h3>";
+    echo "";
+      }
+    }
   }
 }
 ?>
