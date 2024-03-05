@@ -36,6 +36,29 @@
     th {
       background-color: #f2f2f2;
     }
+    .button-style {
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: #ddd; 
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
+  margin: 0 8px;
+}
+.button-style:hover, .button-style:focus {
+  background-color: #165ead; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #143c74; 
+}
+.button-style:active {
+  background-color: #0f4a8d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
   </style>
   <script>
     function updateImage(src) {
@@ -74,18 +97,19 @@
 
       <h2><?php echo $displayName; ?></h2>
       <div class="image-selector">
-        <button onclick="updateImage('<?php echo $splash; ?>')">Splash</button>
-        <button onclick="updateImage('<?php echo $displayIcon; ?>')">Display Icon</button>
-        <button onclick="updateImage('<?php echo $listViewIcon; ?>')">List View Icon</button>
-        <button onclick="updateImage('<?php echo $listViewIconTall; ?>')">List View Icon Tall</button>
-        <button onclick="updateImage('<?php echo $stylizedBackgroundImage; ?>')">Stylized Background</button>
-        <button onclick="updateImage('<?php echo $premierBackgroundImage; ?>')">Premier Background</button>
+        <button class="button-style" onclick="updateImage('<?php echo $splash; ?>')">Splash</button>
+        <button  class="button-style" onclick="updateImage('<?php echo $displayIcon; ?>')">Display Icon</button>
+        <button class="button-style" onclick="updateImage('<?php echo $listViewIcon; ?>')">List View Icon</button>
+       <hr>
+        <button  class="button-style" onclick="updateImage('<?php echo $listViewIconTall; ?>')">List View Icon Tall</button>
+        <button  class="button-style" onclick="updateImage('<?php echo $stylizedBackgroundImage; ?>')">Stylized Background</button>
+        <button  class="button-style" onclick="updateImage('<?php echo $premierBackgroundImage; ?>')">Premier Background</button>
       </div>
       <img id="mapImage" src="<?php echo $splash; ?>" alt="<?php echo $displayName; ?>">
       <table>
         <tr>
-          <th>Nombre de la Región</th>
-          <th>Super Región</th>
+          <th>Region Name</th>
+          <th>Site</th>
         </tr>
         <?php
         $callouts = $data['data']['callouts'];
