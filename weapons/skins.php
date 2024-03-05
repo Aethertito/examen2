@@ -38,18 +38,22 @@
             $weaponName = $data['data']['displayName'];
             $weaponIcon = $data['data']['displayIcon'];
             echo "<h1>$weaponName skins</h1>";
-            echo "<img src = $weaponIcon alt=#>";
+            echo "<img src='$weaponIcon' alt='#'>";
+
             // Iterar sobre los skins y mostrar sus nombres y UUID
             if (isset($data['data']['skins']) && is_array($data['data']['skins'])) {
                 foreach ($data['data']['skins'] as $skin) {
-                    if($skin['contentTierUuid'] == null || $skin['$displayIcon'] == null){
-                      echo "";
-                    }else{
-                      $skinUuid = $skin['uuid'];
-                      $skinName = $skin['displayName'];
-                      $skinIcon = $skin['displayIcon'];
-                      echo "<p>$skinName</p>";
-                      echo "<img src = $skinIcon alt=#>";
+                    if ($skin['contentTierUuid'] == null || $skin['displayIcon'] == null) {
+                        echo "";
+                    } else {
+                        $skinUuid = $skin['uuid'];
+                        $skinName = $skin['displayName'];
+                        $skinIcon = $skin['displayIcon'];
+                        echo "<p>$skinName</p>";
+                        echo '<a href="skins2.php?uuid=' . $skinUuid . '">';
+echo '<img src="' . $skinIcon . '" alt="#">';
+echo '</a>';
+
                     }
                 }
             } else {
