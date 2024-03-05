@@ -12,7 +12,10 @@
   <div class="navbar-links">
     <a href="paginaPrincipal.php" class="navbar-link">Agents</a>
     <a href="weapons/weapons.php" class="navbar-link">Weapons</a>
-    <a href="basics/menuBasics.php" class="navbar-link">Basics</a>
+    <a href="basics/maps.php" class="navbar-link">Maps</a>
+    <a href="seasons/season.php" class="navbar-link">Seasons</a>
+    <a href="weaponss/skins.php" class="navbar-link">Skins</a>
+    <a href="weaponss/skins.php" class="navbar-link">Abilities</a>
   </div>
 </div>
 
@@ -37,7 +40,6 @@
 
 <div id="agentes-lista">
   <?php 
-    // Datos de los agentes (simulación)
     
     $agentes = [
       ["nombre" => "Gekko", "uuid" => "e370fa57-4757-3604-3648-499e1f642d3f", "rol" => "Initiator"],

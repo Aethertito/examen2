@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Información de Mapas</title>
+  <title>Mpas information</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -19,12 +19,11 @@
 </div>
 
 <div class="container">
-  <!-- Formulario de búsqueda -->
   <div class="search-container">
     <form action="" method="get">
-      <input type="text" placeholder="Buscar por nombre..." name="search" class="search-input" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+      <input type="text" placeholder="Search by..." name="search" class="search-input" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
       <select name="sort" onchange="this.form.submit()">
-        <option value="">Ordenar por</option>
+        <option value="">Order by</option>
         <option value="az" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'az' ? 'selected' : ''; ?>>A-Z</option>
         <option value="za" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'za' ? 'selected' : ''; ?>>Z-A</option>
       </select>
@@ -34,7 +33,6 @@
   <hr>
 
   <?php
-  // Funciones de ordenamiento
   function ordenarMapasAZ($a, $b) {
       return strcmp($a["displayName"], $b["displayName"]);
   }
@@ -42,20 +40,16 @@
   function ordenarMapasZA($a, $b) {
       return strcmp($b["displayName"], $a["displayName"]);
   }
-
-  // Obtención y filtrado de datos
   $url = "https://valorant-api.com/v1/maps";
   $response = file_get_contents($url);
   $data = json_decode($response, true);
   $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
 
   if (isset($data['data']) && !empty($data['data'])) {
-      // Filtrar los mapas por nombre de búsqueda
       $filtered_maps = array_filter($data['data'], function($map) use ($search) {
           return empty($search) || strpos(strtolower($map['displayName']), $search) !== false;
       });
 
-      // Ordenar si se especificó un criterio
       if (isset($_GET['sort'])) {
           $sortType = $_GET['sort'];
           if ($sortType == 'az') {
@@ -64,8 +58,6 @@
               usort($filtered_maps, 'ordenarMapasZA');
           }
       }
-
-      // Mostrar los mapas
       foreach ($filtered_maps as $map) {
           $displayName = $map['displayName'];
           $splash = $map['splash'];
