@@ -10,7 +10,6 @@
             font-family: Arial,helvetica,arial,sans-serif;
             color: black;
         }
-    /* Estilo para la tabla */
     table {
       width: 100%;
       border-collapse: collapse;
