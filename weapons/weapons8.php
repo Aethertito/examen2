@@ -86,7 +86,7 @@ $weapons = [
     ["nombre" => "Marshal", "uuid" => "c4883e50-4494-202c-3ec3-6b8a9284f00b", "category" => "Sniper", "newImage" => "https://media.valorant-api.com/weapons/c4883e50-4494-202c-3ec3-6b8a9284f00b/shop/newimage.png"],
     ["nombre" => "Spectre", "uuid" => "462080d1-4035-2937-7c09-27aa2a5c27a7", "category" => "SMG", "newImage" => "https://media.valorant-api.com/weapons/462080d1-4035-2937-7c09-27aa2a5c27a7/shop/newimage.png"],
     ["nombre" => "Stinger", "uuid" => "f7e1b454-4ad4-1063-ec0a-159e56b58941", "category" => "SMG", "newImage" => "https://media.valorant-api.com/weapons/f7e1b454-4ad4-1063-ec0a-159e56b58941/shop/newimage.png"],
-    ["nombre" => "Melee", "uuid" => "2f59173c-4bed-b6c3-2191-dea9b58be9c7", "category" => "Melee", "newImage" => ""],
+    ["nombre" => "Melee", "uuid" => "2f59173c-4bed-b6c3-2191-dea9b58be9c7", "category" => "Melee", "newImage" => "https://media.valorant-api.com/weapons/2f59173c-4bed-b6c3-2191-dea9b58be9c7/displayicon.png"],
   ];
 
 $categories = [];
