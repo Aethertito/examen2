@@ -59,9 +59,9 @@ if(isset($_GET['uuid']) && !empty($_GET['uuid'])) {
     echo "<p>$descripcion</p>";
 
     // Mostrar información del rol tabla
-    echo "<h2>Rol</h2>";
+    echo "<h2>Role</h2>";
     echo "<table>";
-    echo "<tr><th>Nombre</th><th>Imagen</th><th>Descripción</th></tr>";
+    echo "<tr><th>Name</th><th>Image</th><th>Description</th></tr>";
     echo "<tr>";
     echo "<td>{$rol['displayName']}</td>";
     echo "<td><img src='{$rol['displayIcon']}' alt='{$rol['displayName']}'></td>";
@@ -70,9 +70,9 @@ if(isset($_GET['uuid']) && !empty($_GET['uuid'])) {
     echo "</table>";
 
     // Mostrar habilidades tabla
-    echo "<h2>Habilidades</h2>";
+    echo "<h2>Abilities</h2>";
     echo "<table>";
-    echo "<tr><th>Nombre</th><th>Imagen</th><th>Descripción</th></tr>";
+    echo "<tr><th>Name</th><th>Image</th><th>Description</th></tr>";
     foreach ($habilidades as $habilidad) {
       echo "<tr>";
       echo "<td>{$habilidad['displayName']}</td>";

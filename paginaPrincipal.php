@@ -18,16 +18,16 @@
 
 <div class="search-filter-container">
   <form method="get">
-    <input type="text" name="search" placeholder="Buscar agente por nombre">
+    <input type="text" name="search" placeholder="Search by agent name">
     <select name="role">
-      <option value="">Filtrar por rol</option>
+      <option value="">Rol filter</option>
       <option value="Duelist">Duelist</option>
       <option value="Initiator">Initiator</option>
       <option value="Controller">Controller</option>
       <option value="Sentinel">Sentinel</option>
     </select>
     <select name="sort">
-      <option value="">Ordenar por</option>
+      <option value="">Order by</option>
       <option value="az">A-Z</option>
       <option value="za">Z-A</option>
     </select>
@@ -67,12 +67,24 @@
 
     // Función para filtrar agentes por nombre
     function filtrarAgentesPorNombre($agentes, $nombre) {
-        // Código para filtrar agentes por nombre aquí
+      $resultados = [];
+      foreach ($agentes as $agente) {
+          if (strpos(strtolower($agente['nombre']), strtolower($nombre)) !== false) {
+              $resultados[] = $agente;
+          }
+      }
+      return $resultados;
     }
 
     // Función para filtrar agentes por rol
     function filtrarAgentesPorRol($agentes, $rol) {
-        // Código para filtrar agentes por rol aquí
+      $resultados = [];
+      foreach ($agentes as $agente) {
+          if ($agente['rol'] === $rol) {
+              $resultados[] = $agente;
+          }
+      }
+      return $resultados;
     }
 
     // Función para ordenar agentes de A a Z
@@ -87,12 +99,16 @@
 
     // Aplicar filtros y ordenamiento si se han enviado datos desde el formulario
     if (isset($_GET['search'])) {
-        // Código para aplicar filtro por nombre aquí
-    }
+      $nombreBuscado = $_GET['search'];
+      $agentes = filtrarAgentesPorNombre($agentes, $nombreBuscado);
+  }
 
     if (isset($_GET['role'])) {
-        // Código para aplicar filtro por rol aquí
-    }
+      $rolFiltrado = $_GET['role'];
+      if ($rolFiltrado !== "") {
+          $agentes = filtrarAgentesPorRol($agentes, $rolFiltrado);
+      }
+  }
 
     if (isset($_GET['sort'])) {
         $sortType = $_GET['sort'];
