@@ -6,10 +6,10 @@
   <title>Información de Mapas</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    body{
-            font-family: Arial,helvetica,arial,sans-serif;
-            color: black;
-        }
+    body {
+      font-family: Arial, helvetica, sans-serif;
+      color: black;
+    }
     .container {
       text-align: center;
     }
@@ -20,23 +20,10 @@
       display: block;
       margin-bottom: 20px;
     }
-    table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      width: 50%;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
   </style>
 </head>
 <body>
-    <!-- Barra de menú -->
+  
 <div class="navbar">
   <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
@@ -46,7 +33,6 @@
   </div>
 </div>
 
-<!-- Contenedor principal -->
 <div class="container">
   <?php
   $url = "https://valorant-api.com/v1/maps";
@@ -57,26 +43,9 @@
     foreach ($data['data'] as $map) {
       $displayName = $map['displayName'];
       $splash = $map['splash'];
-      $callouts = $map['callouts'];
       ?>
-
-      <h2><?php echo $displayName; ?></h2>
-      <!-- Imagen principal del mapa -->
-      <img src="<?php echo $splash; ?>" alt="<?php echo $displayName; ?>">
-
-      <!-- Tabla de Callouts -->
-      <table>
-        <tr>
-          <th>Nombre de la Región</th>
-          <th>Super Región</th>
-        </tr>
-        <?php foreach ($callouts as $callout) { ?>
-          <tr>
-            <td><?php echo $callout['regionName']; ?></td>
-            <td><?php echo $callout['superRegionName']; ?></td>
-          </tr>
-        <?php } ?>
-      </table>
+      <h2><a href="maps2.php?map=<?php echo $map['uuid']; ?>"><?php echo $displayName; ?></a></h2>
+      <a href="maps2.php?map=<?php echo $map['uuid']; ?>"><img src="<?php echo $splash; ?>" alt="<?php echo $displayName; ?>"></a>
 
       <?php
     }
@@ -88,4 +57,3 @@
 
 </body>
 </html>
-
