@@ -72,8 +72,11 @@
   <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
     <a href="../paginaPrincipal.php" class="navbar-link">Agents</a>
-    <a href="../weapons/weapons.php" class="navbar-link">Weapons</a>
-    <a href="../basics/menuBasics.php" class="navbar-link">Basics</a>
+    <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
+    <a href="maps.php" class="navbar-link">Maps</a>
+    <a href="../seasons/season.php" class="navbar-link">Seasons</a>
+    <a href="../weapons/weaponsSkin.php" class="navbar-link">Skins</a>
+    <a href="abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
 

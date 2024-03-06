@@ -21,7 +21,7 @@
     <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
     <a href="../basics/maps.php" class="navbar-link">Maps</a>
     <a href="../seasons/season.php" class="navbar-link">Seasons</a>
-    <a href="skins.php" class="navbar-link">Skins</a>
+    <a href="weaponsSkin.php" class="navbar-link">Skins</a>
     <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
@@ -39,8 +39,7 @@
             $weaponIcon = $data['data']['displayIcon'];
             echo "<h1>$weaponName skins</h1>";
             echo "<img src='$weaponIcon' alt='#'>";
-
-            // Iterar sobre los skins y mostrar sus nombres y UUID
+            
             if (isset($data['data']['skins']) && is_array($data['data']['skins'])) {
                 foreach ($data['data']['skins'] as $skin) {
                     if ($skin['contentTierUuid'] == null || $skin['displayIcon'] == null) {
@@ -50,7 +49,6 @@
                         $skinName = $skin['displayName'];
                         $skinIcon = $skin['displayIcon'];
                         echo "<p>$skinName</p>";
-                        echo '<a href="skins2.php?uuid=' . $skinUuid . '">';
 echo '<img src="' . $skinIcon . '" alt="#">';
 echo '</a>';
 

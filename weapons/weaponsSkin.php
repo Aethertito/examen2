@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valorant Weapons</title>
+  <title>Skin weapons</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
     body {
@@ -68,7 +68,7 @@
     <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
     <a href="../basics/maps.php" class="navbar-link">Maps</a>
     <a href="../seasons/season.php" class="navbar-link">Seasons</a>
-    <a href="skins.php" class="navbar-link">Skins</a>
+    <a href="weaponsSkin.php" class="navbar-link">Skins</a>
     <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
@@ -76,7 +76,6 @@
 <div class="menu-container">
   <div class="weapon-category">
   <?php 
-    // Datos de los agentes (simulación)
     $weapons = [
       ["nombre" => "Odin", "uuid" => "63e6c2b6-4a8e-869c-3d4c-e38355226584", "category" => "Heavy", "newImage" => "https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/shop/newimage.png"],
       ["nombre" => "Ares", "uuid" => "55d8a0f4-4274-ca67-fe2c-06ab45efdf58", "category" => "Heavy", "newImage" => "https://media.valorant-api.com/weapons/55d8a0f4-4274-ca67-fe2c-06ab45efdf58/shop/newimage.png"],

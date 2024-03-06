@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-
-<!-- Barra de menú -->
 <div class="navbar">
   <a href="../index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
@@ -18,7 +16,6 @@
   </div>
 </div>
 
-<!-- Contenedor principal -->
 <div class="container">
 <?php
 $url = "https://valorant-api.com/v1/gear";

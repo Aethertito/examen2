@@ -68,7 +68,7 @@
     <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
     <a href="../basics/maps.php" class="navbar-link">Maps</a>
     <a href="../seasons/season.php" class="navbar-link">Seasons</a>
-    <a href="skins.php" class="navbar-link">Skins</a>
+    <a href="weaponsSkin.php" class="navbar-link">Skins</a>
     <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>

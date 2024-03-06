@@ -15,7 +15,7 @@
     <a href="../weapons/weapons8.php" class="navbar-link">Weapons</a>
     <a href="../basics/maps.php" class="navbar-link">Maps</a>
     <a href="season.php" class="navbar-link">Seasons</a>
-    <a href="../weapons/skins.php" class="navbar-link">Skins</a>
+    <a href="../weapons/weaponsSkin.php" class="navbar-link">Skins</a>
     <a href="../basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
@@ -32,10 +32,9 @@
     $data = json_decode($response, true);
 
     if (isset($data['data']) && !empty($data['data'])) {
-      // Preparamos los datos agrupándolos por episodios
       $episodes = [];
       foreach ($data['data'] as $item) {
-        if (empty($item['type'])) { // Es un episodio
+        if (empty($item['type'])) {
           $episodes[$item['uuid']] = [
             'displayName' => $item['displayName'],
             'acts' => []
@@ -44,7 +43,7 @@
       }
 
       foreach ($data['data'] as $item) {
-        if (!empty($item['type'])) { // Es un acto
+        if (!empty($item['type'])) {
           $parentUuid = $item['parentUuid'];
           if (isset($episodes[$parentUuid])) {
             $episodes[$parentUuid]['acts'][] = $item;
@@ -52,10 +51,6 @@
         }
       }
 
-      // Mostramos los datos en una tabla
-      // ... Resto de tu código PHP ...
-
-// Mostramos los datos en una tabla
 echo "<table>";
 echo "<tr><th>Episodio</th><th>Acto</th><th>Inicio</th><th>Fin</th></tr>";
 foreach ($episodes as $episode) {
