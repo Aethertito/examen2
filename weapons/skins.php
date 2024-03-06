@@ -6,8 +6,8 @@
   <title>Weapons Info</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .container{
-      font-family: Arial,helvetica,arial,sans-serif;
+    .container {
+      font-family: Arial, helvetica, arial, sans-serif;
       color: white;
     }
   </style>
@@ -26,28 +26,42 @@
   </div>
 </div>
 <div class="container">
-<?php
-if (isset($_GET['uuid']) && !empty($_GET['uuid'])) {
-    $uuid = $_GET['uuid'];
-    $url = "https://valorant-api.com/v1/weapons/$uuid";
-    $response = file_get_contents($url);
-    $data = json_decode($response, true);
-    if(isset($data['data']) && !empty($data['data'])){
-        $name = $data['data']['displayName'];
-        echo "<h1>$name skins</h1>";
-        
-        // Iterar sobre los skins y mostrar sus nombres
-        if (isset($data['data']['skins']) && is_array($data['data']['skins'])) {
-            foreach ($data['data']['skins'] as $skin) {
-                echo "<p>{$skin['displayName']}</p>";
+    <?php
+    if (isset($_GET['uuid']) && !empty($_GET['uuid'])) {
+        $uuid = $_GET['uuid'];
+        $url = "https://valorant-api.com/v1/weapons/$uuid";
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if (isset($data['data']) && !empty($data['data'])) {
+            $weaponUuid = $data['data']['uuid'];
+            $weaponName = $data['data']['displayName'];
+            $weaponIcon = $data['data']['displayIcon'];
+            echo "<h1>$weaponName skins</h1>";
+            echo "<img src='$weaponIcon' alt='#'>";
+
+            // Iterar sobre los skins y mostrar sus nombres y UUID
+            if (isset($data['data']['skins']) && is_array($data['data']['skins'])) {
+                foreach ($data['data']['skins'] as $skin) {
+                    if ($skin['contentTierUuid'] == null || $skin['displayIcon'] == null) {
+                        echo "";
+                    } else {
+                        $skinUuid = $skin['uuid'];
+                        $skinName = $skin['displayName'];
+                        $skinIcon = $skin['displayIcon'];
+                        echo "<p>$skinName</p>";
+                        echo '<a href="skins2.php?uuid=' . $skinUuid . '">';
+echo '<img src="' . $skinIcon . '" alt="#">';
+echo '</a>';
+
+                    }
+                }
+            } else {
+                echo "No se encontraron skins para este arma.";
             }
-        } else {
-            echo "No se encontraron skins para este arma.";
         }
     }
-}
-?>
-
-  </div>
+    ?>
+</div>
 </body>
 </html>
