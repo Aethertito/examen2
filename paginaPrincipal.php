@@ -124,8 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <option value="az">A-Z</option>
       <option value="za">Z-A</option>
     </select>
-    <h1>Select 2 checkboxes to compare</h1>
     <button type="submit">Search</button>
+
+    <h1>Select 2 checkboxes to compare</h1>
   </form>
 </div>
 <button onclick="window.location.href='favoritos.php'">Favorites</button>

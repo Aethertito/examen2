@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <style>
+    </style>
 <div class="navbar">
   <a href="index.html" class="navbar-brand">Valorant Wiki</a>
   <div class="navbar-links">
@@ -18,7 +20,8 @@
     <a href="basics/abilities.php" class="navbar-link">Abilities</a>
   </div>
 </div>
-
+<br>
+<button class="btn btn-regresar" onclick="window.location.href='paginaPrincipal.php';">Regresar</button>
 <div id="agentes-lista" class="agentes-lista">
   <?php
  
