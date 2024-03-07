@@ -38,6 +38,29 @@
 </style>
 
 <script>
+ function agregarAFavoritos(uuid) {
+  let favoritos = localStorage.getItem('agentesFavoritos');
+  favoritos = favoritos ? JSON.parse(favoritos) : [];
+
+  if (!favoritos.includes(uuid)) {
+    favoritos.push(uuid);
+    localStorage.setItem('agentesFavoritos', JSON.stringify(favoritos));
+    alert('Agente agregado a favoritos');
+  } else {
+    // Opcionalmente, podrías manejar la lógica para remover un favorito aquí
+    alert('Agente ya está en favoritos');
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', function(e) {
+    if (e.target && e.target.matches('.btn-favoritos')) {
+      const uuid = e.target.getAttribute('data-uuid');
+      agregarAFavoritos(uuid);
+    }
+  });
+});
+
+
   document.addEventListener('DOMContentLoaded', (event) => {
     const checkboxes = document.querySelectorAll('.compare-checkbox');
     checkboxes.forEach(checkbox => {
@@ -65,7 +88,7 @@
       const agent2 = checkedCheckboxes[1].value;
       window.location.href = `agentes/comparar.php?agent1=${agent1}&agent2=${agent2}`;
     } else {
-      alert("Only select 2 agents with the same role.");
+      alert("Only select 2 agents with the same role in the checkboxes above agents.");
     }
   }
 </script>
@@ -104,6 +127,7 @@
     <button type="submit">Search</button>
   </form>
 </div>
+<button onclick="window.location.href='favoritos.php'">Ver Favoritos</button>
 
 <button type="button" onclick="handleCompare()">Comparar</button>
 
@@ -199,11 +223,13 @@
         echo '<div class="agente">';
         echo '<h2>' . $agente["nombre"] . '</h2>';
         echo '<input type="checkbox" class="compare-checkbox" data-rol="' . $agente["rol"] . '" value="' . $agente["uuid"] . '">';
+        echo '<button class="btn-favoritos" data-uuid="' . $agente["uuid"] . '">❤</button>';
         echo '<a href="#" onclick="event.preventDefault(); window.location.href=\'agentes/agente.php?uuid=' . $agente["uuid"] . '\'">';
         echo '<img src="https://media.valorant-api.com/agents/' . $agente["uuid"] . '/displayicon.png" alt="' . $agente["nombre"] . '" class="agent-img">';
         echo '</a>';
         echo '</div>';
     }
+    
     
   ?>
 </div>
