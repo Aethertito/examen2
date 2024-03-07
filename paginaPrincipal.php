@@ -124,12 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <option value="az">A-Z</option>
       <option value="za">Z-A</option>
     </select>
+    <h1>Select 2 checkboxes to compare</h1>
     <button type="submit">Search</button>
   </form>
 </div>
-<button onclick="window.location.href='favoritos.php'">Ver Favoritos</button>
+<button onclick="window.location.href='favoritos.php'">Favorites</button>
 
-<button type="button" onclick="handleCompare()">Comparar</button>
+<button type="button" onclick="handleCompare()">Compare</button>
+
 
 <div id="agentes-lista">
   <?php
@@ -223,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         echo '<div class="agente">';
         echo '<h2>' . $agente["nombre"] . '</h2>';
         echo '<input type="checkbox" class="compare-checkbox" data-rol="' . $agente["rol"] . '" value="' . $agente["uuid"] . '">';
-        echo '<button class="btn-favoritos" data-uuid="' . $agente["uuid"] . '">❤</button>';
+        echo '<button class="btn-favoritos" data-uuid="' . $agente["uuid"] . '">Add Favorites</button>';
         echo '<a href="#" onclick="event.preventDefault(); window.location.href=\'agentes/agente.php?uuid=' . $agente["uuid"] . '\'">';
         echo '<img src="https://media.valorant-api.com/agents/' . $agente["uuid"] . '/displayicon.png" alt="' . $agente["nombre"] . '" class="agent-img">';
         echo '</a>';

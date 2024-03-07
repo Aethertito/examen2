@@ -54,7 +54,7 @@
       echo '<a href="#" onclick="event.preventDefault(); window.location.href=\'agentes/agente.php?uuid=' . $agente["uuid"] . '\'">';
       echo '<img src="https://media.valorant-api.com/agents/' . $agente["uuid"] . '/displayicon.png" alt="' . $agente["nombre"] . '" class="agent-img">';
       echo '</a>';
-      echo '<button class="btn-eliminar-favoritos" data-uuid="' . $agente["uuid"] . '">Eliminar de Favoritos</button>';
+      echo '<button class="btn-eliminar-favoritos" data-uuid="' . $agente["uuid"] . '">Delete Favorites</button>';
       echo '</div>';
     }
   ?>
