@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agentes de Valorant</title>
+  <title>Valorant Agents</title>
   <link rel="stylesheet" href="styles.css">
   <style>
   .agentes-lista {
